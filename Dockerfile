@@ -1,4 +1,4 @@
 FROM tomcat:latest
 #fhfh
-COPY ./target/webapp*.war /usr/local/tomcat/webapps/
+COPY /target/webapp*.war /usr/local/tomcat/webapps/webapp.war
 
