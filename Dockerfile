@@ -1,4 +1,4 @@
-FROM tomcat:latest
-RUN cp -R  /usr/local/tomcat/webapps.dist/*  /usr/local/tomcat/webapps
-ADD ./*.war  /usr/local/tomcat/webapps
-CMD ["catalina.sh", "run"]
+FROM tomcat:8.0.20-jre8
+RUN sed -i '/<\/tomcat-users>/ i\<user username="admin" password="password" roles="admin-gui,manager-gui"/>' /usr/local/tomcat/conf/tomcat-users.xml
+#COPY tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
+COPY target/*.war /usr/local/tomcat/webapps
